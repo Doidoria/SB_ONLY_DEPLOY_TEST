@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>ADMIN PAGE..</h1>
+    이름 :   <span sec:authentication="name"></span><br/>
+    이메일 :   <span sec:authentication="principal.username"></span><br/>
+    권한여부 : <span sec:authentication="principal.authorities"></span><br/>
+    인증여부 :
+        <span sec:authorize="isAuthenticated()">로그인된 상태임</span><br/>
+        <span sec:authorize="!isAuthenticated()">로그아웃된 상태임</span><br/>
+</body>
+</html>
