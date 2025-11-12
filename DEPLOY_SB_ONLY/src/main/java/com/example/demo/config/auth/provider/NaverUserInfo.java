@@ -1,26 +1,29 @@
 package com.example.demo.config.auth.provider;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.Map;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class NaverUserInfo implements OAuth2UserInfo {
 //    private String id;
 //    private String profile_image;
 //    private String email;
 //    private String name;
-    private Map<String, Object> response;
+
+    private Map<String,Object> response;
 
     @Override
     public String getName() {
-        return (String)response.get("given_name");
+        return (String)response.get("name");
     }
 
     @Override

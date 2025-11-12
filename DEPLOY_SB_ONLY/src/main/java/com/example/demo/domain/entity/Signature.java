@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Builder
 public class Signature {
     @Id
-    @Column(name="sighKey")
+    @Column(name="signKey")
     private byte[] keyBytes;
     @Column(name="createAt")
     private LocalDate createAt;

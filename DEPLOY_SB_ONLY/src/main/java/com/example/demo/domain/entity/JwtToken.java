@@ -24,8 +24,7 @@ public class JwtToken {
     @Column
     private String username;
     @Column
-    private String auth; // "ROLE_USER, ROLE_ADMIN"
+    private String auth; // "ROLE_USER,ROLE_ADMIN"
     @Column(name="createdAt",columnDefinition = "DATETIME",nullable = false)
     private LocalDateTime createAt;
-
 }

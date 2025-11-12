@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
+import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,23 +23,23 @@ public class PrincipalDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override // DB 데이터 확인(DB에 있는걸 던져줌)
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("PrincipalDetailsService's loadUserByUsername : "+username);
 
-        Optional<User> userOptional=
-                userRepository.findById(username);
-        if(userOptional.isEmpty()){ // DB에 있다면
-            throw new UsernameNotFoundException(username+" 계정이 존재하지 않습니다"); // 예외처리로 넘어가야됨
-        }
-        // entity -> dto
-        User user=userOptional.get();
-        UserDto dto=new UserDto();
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("PrincipalDetailsService's loadUserByUsername : " + username);
+
+        Optional<User> userOptional =
+            userRepository.findById(username);
+        if(userOptional.isEmpty())
+            throw new UsernameNotFoundException(username+" 계정이 존재하지 않습니다");
+
+        //ENTITY -> DTO
+        User user = userOptional.get();
+        UserDto dto = new UserDto();
         dto.setUsername(user.getUsername());
         dto.setPassword(user.getPassword());
         dto.setRole(user.getRole());
 
-        return new PrincipalDetails(dto); //dto만 받는 생성자 PrincipalDetails에서 만듬
+        return new PrincipalDetails(dto);
     }
-
 }

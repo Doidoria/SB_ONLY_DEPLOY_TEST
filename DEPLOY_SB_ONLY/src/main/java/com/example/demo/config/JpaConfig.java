@@ -1,6 +1,7 @@
 package com.example.demo.config;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
@@ -20,8 +21,8 @@ import java.util.Properties;
         basePackages = {"com.example.demo.domain.repository"},
         transactionManagerRef = "jpaTransactionManager"
 )
-
 public class JpaConfig {
+
     @Autowired
     private DataSource dataSource;
 
@@ -45,14 +46,13 @@ public class JpaConfig {
 //        properties.put("hibernate.hibernate.order_inserts", true);
 //        properties.put("hibernate.order_updates", true);
 //        properties.put("hibernate.jdbc.batch_versioned_data", true);
+
         entityManagerFactoryBean.setJpaPropertyMap(properties);
 
         return entityManagerFactoryBean;
     }
-}
 
-
-    //애플리케이션 시작 시 데이터베이스 초기화
+//    //애플리케이션 시작 시 데이터베이스 초기화
 //    @Bean
 //    public DataSourceInitializer dataSourceInitializer() {
 //        DataSourceInitializer initializer = new DataSourceInitializer();
@@ -72,6 +72,6 @@ public class JpaConfig {
 //        populator.addScript(dataScript);
 //        return populator;
 //    }
-//
-//}
-//
+
+}
+

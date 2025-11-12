@@ -25,27 +25,26 @@ repositories {
 }
 
 dependencies {
-
-    // Web(MVC - 인터셉터, 리스너....)
+    //WEB(MVC -  인터셉터,리스너...)
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // lombok
+    //LOMBOK
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    // thymeleaf
+    //THYMELEAF
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
-    // DB(+ORM(JPA))
+    //DB(+ORM(JPA))
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     runtimeOnly 'com.mysql:mysql-connector-j'
 
-    // Security
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    //SECURITY
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 
-    //OAUTH2-Client
+    //OAUTH2-CLIENT
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
     //JWT TOKEN LIB
@@ -54,9 +53,9 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.13.0'
 
     //TEST
-    testImplementation 'org.springframework.security:spring-security-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {

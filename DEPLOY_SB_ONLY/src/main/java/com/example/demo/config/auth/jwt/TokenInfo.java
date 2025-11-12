@@ -5,10 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
+
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Data
 public class TokenInfo {
     private String grantType;
     private String accessToken;

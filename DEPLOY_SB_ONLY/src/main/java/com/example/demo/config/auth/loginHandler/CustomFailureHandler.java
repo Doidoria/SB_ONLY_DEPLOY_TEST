@@ -14,11 +14,10 @@ import java.net.URLEncoder;
 @Slf4j
 @Component
 public class CustomFailureHandler implements AuthenticationFailureHandler {
-
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        log.error("CustomFailureHandler's onAuthenticationFailure invoke....!");
-        response.sendRedirect("/login?error="+URLEncoder.encode(exception.getMessage(),"utf-8"));
+        log.error("CustomFailureHandler's onAuthenticationFailure invoke...!");
+        response.sendRedirect("/login?error="+ URLEncoder.encode(exception.getMessage(),"utf-8"));
 //        URLEncoder.encode(exception.getMessage(),"utf-8");
 
 

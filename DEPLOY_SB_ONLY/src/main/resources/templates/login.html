@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>로그인 페이지</title>
+    <title>Title</title>
 </head>
 <body>
     <h1>LOGIN PAGE</h1>
-    <form class="login-form" method="post" action="/login">
+    <form method="post" action="/login">
         <p>
             <label for="username" class="screenreader">Username</label>
             <input type="text" id="username" name="username" placeholder="Username" required="" autofocus="">
@@ -15,16 +15,13 @@
             <label for="password" class="screenreader">Password</label>
             <input type="password" id="password" name="password" placeholder="Password" required="">
         </p>
-
-<!--        <input name="_csrf" th:value="${_csrf.token}">-->
+<!--        <input name="_csrf"  th:value="${_csrf.token}">-->
         <button type="submit" class="primary">Sign in</button>
     </form>
 
-    <a href="/oauth2/authorization/kakao">카카오 로그인</a><br>
-    <hr>
-    <a href="/oauth2/authorization/naver">네이버 로그인</a><br>
-    <hr>
-    <a href="/oauth2/authorization/google">구글 로그인</a><br>
+    <a href="/oauth2/authorization/kakao">카카오 로그인</a> <br/>
+    <a href="/oauth2/authorization/naver">네이버 로그인</a> <br/>
+    <a href="/oauth2/authorization/google">구글 로그인</a> <br/>
 
     <span th:text="${param.error}"></span>
 </body>
