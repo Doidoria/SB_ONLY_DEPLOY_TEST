@@ -11,7 +11,7 @@ public class DataSourceConfig {
     public HikariDataSource dataSource(){
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/testdb");
+        dataSource.setJdbcUrl("jdbc:mysql://13.125.134.9:3306/testdb");
         dataSource.setUsername("dbconn");
         dataSource.setPassword("Zhfldk11!");
         return dataSource;
